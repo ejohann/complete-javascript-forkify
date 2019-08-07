@@ -6,6 +6,7 @@ async function getResults(query){
     const apiAppID = 'bbf6d6db';
 
     const results = await axios(`${baseURL}/search?q=${query}&from=0&to=50&app_id=${apiAppID}&app_key=${apiKey}`);
-    console.log(results);
+    const recipes = results.data.hits;
+    console.log(recipes);
 }
-getResults();
+getResults('pizza');
