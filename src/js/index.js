@@ -1,4 +1,5 @@
 import Search from './models/Search';
+import { elements } from './views/base';
 
 /**  
  * Global state of the app
@@ -29,7 +30,7 @@ const controlSearch = async () => {
   };
 
   // event listener on search form
-document.querySelector('.search').addEventListener('submit', e => {
+elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
   });
