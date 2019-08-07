@@ -1,4 +1,5 @@
 import Search from './models/Search';
+import * as searchView from './views/searchView';
 import { elements } from './views/base';
 
 /**  
@@ -13,8 +14,8 @@ const state = {};
 
 const controlSearch = async () => {
     // 1. Get query from view
+    const query = searchView.getInput();
 
-    const query = 'pizza'
     if(query){
         // 2. New search object and add to state
         state.search = new Search(query);
