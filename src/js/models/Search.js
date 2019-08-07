@@ -13,7 +13,7 @@ export default class Search{
         try{
             const results = await axios(`${baseURL}/search?q=${this.query}&from=0&to=50&app_id=${apiAppID}&app_key=${apiKey}`);
             this.recipes = results.data.hits;
-            console.log(this.recipes);
+         //   console.log(this.recipes);
         }catch(error){
             alert(error);
         }
