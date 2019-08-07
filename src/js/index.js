@@ -1,1 +1,2 @@
-// Global app controller
+import axios from 'axios'; 
+
