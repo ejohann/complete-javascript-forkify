@@ -76,17 +76,20 @@ elements.searchResultPages.addEventListener('click', e => {
         // create new recipe object
         state.recipe = new Recipe(id);
 
-        // create new recipe object
+        try {
+            // get recipe data
+            await state.recipe.getRecipe();
 
-        // get recipe data
-        await state.recipe.getRecipe();
+            // calculate servings and time
+            state.recipe.calcTime();
+            state.recipe.calcServings();
 
-        // calculate servings and time
-        state.recipe.calcTime();
-        state.recipe.calcServings();
-
-        // render recipe
-        console.log(state.recipe);
+            // render recipe
+            console.log(state.recipe);
+        }catch(error){
+            alert('Error processing recipe');
+        }
+    
     }
  }
 
