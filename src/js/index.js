@@ -31,13 +31,17 @@ const controlSearch = async () => {
         searchView.clearInput();
         searchView.clearResults();
         renderLoader(elements.searchResult);
+        try{
+            // 4 Search for recipes
+            await state.search.getResults();
 
-        // 4 Search for recipes
-        await state.search.getResults();
-
-        // 5. render results for recipes
-        clearLoader();
-       searchView.renderResults(state.search.recipes); 
+            // 5. render results for recipes
+            clearLoader();
+            searchView.renderResults(state.search.recipes); 
+        }catch(error){
+            alert('Something went wrong');
+            clearLoader();
+        }   
     }
   };
 
