@@ -41,4 +41,18 @@ elements.searchForm.addEventListener('submit', e => {
     controlSearch();
   });
 
+  // event listener on pagination
+elements.searchResultPages.addEventListener('click', e => {
+    // closest element to click 
+    const btn = e.target.closest('.btn-inline');
+    if(btn){
+        // get the page number
+        const goToPage = parseInt(btn.dataset.goto, 10);
+        // go to the page and render the results
+        searchView.renderResults(state.search.recipes, goToPage); 
+        console.log(goToPage);
+      }
+});
+
+
 
