@@ -16,6 +16,7 @@ export default class Recipe{
             //this.url = results.data[0].url;
             this.url = results.data[0].shareAs;
             this.ingredients = results.data[0].ingredientLines;
+            this.parseIngredients ();
            console.log(results);
         }catch(error){
             console.log(error);
@@ -40,7 +41,7 @@ export default class Recipe{
 
         const newIngredients = this.ingredients.map(el => {
             // 1. Uniform units
-            let ingredient = el.lowercase();
+            let ingredient = el.toLowerCase();
             unitsLong.forEach((unit, i) => {
                 ingredient = ingredient.replace(unit, unitsShort[i]);
             });
@@ -49,6 +50,7 @@ export default class Recipe{
             ingredient = ingredient.replace(/ *\([^)]*\) */g, "");
            
             // 3. parse ingredients into count, unit and ingredient
+            return ingredient;
         });
         this.ingredients = newIngredients;
     }
