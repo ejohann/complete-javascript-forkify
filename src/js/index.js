@@ -68,5 +68,6 @@ elements.searchResultPages.addEventListener('click', e => {
 
  const r = new Recipe('recipe_1b6dfeaf0988f96b187c7c9bb69a14fa');
  r.getRecipe();
+ console.log(r);
 
 
