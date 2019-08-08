@@ -48,6 +48,8 @@ elements.searchResultPages.addEventListener('click', e => {
     if(btn){
         // get the page number
         const goToPage = parseInt(btn.dataset.goto, 10);
+        // clear results
+        searchView.clearResults();
         // go to the page and render the results
         searchView.renderResults(state.search.recipes, goToPage); 
         console.log(goToPage);
