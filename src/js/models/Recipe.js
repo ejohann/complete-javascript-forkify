@@ -1,4 +1,5 @@
-import axios from 'axios'; 
+import axios from 'axios';
+import { recipeURL, baseURL, apiAppID, apiKey } from '../config'; 
 
 export default class Recipe{
     constructor(id){
@@ -7,7 +8,9 @@ export default class Recipe{
 
     async getRecipe(){
         try{
-            const results = await axios();
+            const recipeID = encodeURIComponent(`${recipeURL}${this.id}`)
+            const results = await axios(`${baseURL}/search?r=${recipeID}&app_id=${apiAppID}&app_key=${apiKey}`);
+            console.log(results);
         }catch(error){
             console.log(error);
         }
