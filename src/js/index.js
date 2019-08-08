@@ -66,8 +66,35 @@ elements.searchResultPages.addEventListener('click', e => {
  * RECIPE CONTROLLER
  */
 
+ const controlRecipe = async () => {
+     // get id from url
+    const id = window.location.hash.replace('#', '');
+    console.log(id);
+    if(id){
+        // prepare ui for changes
+        
+        // create new recipe object
+        state.recipe = new Recipe(id);
+
+        // create new recipe object
+
+        // get recipe data
+        await state.recipe.getRecipe();
+
+        // calculate servings and time
+        state.recipe.calcTime();
+        state.recipe.calcServings();
+
+        // render recipe
+        console.log(state.recipe);
+    }
+ }
+
+window.addEventListener('hashchange', controlRecipe);
+
+ /*
  const r = new Recipe('recipe_1b6dfeaf0988f96b187c7c9bb69a14fa');
  r.getRecipe();
  console.log(r);
-
+*/
 
