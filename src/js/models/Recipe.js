@@ -47,10 +47,36 @@ export default class Recipe{
             });
 
             // 2.  Remove parenthesis
-            ingredient = ingredient.replace(/ *\([^)]*\) */g, "");
+            ingredient = ingredient.replace(/ *\([^)]*\) */g, " ");
            
             // 3. parse ingredients into count, unit and ingredient
-            return ingredient;
+            const arrIngredient = ingredient.split(' ');
+
+            // get in the index if it has a unit
+            const unitIndex = arrIngredient.findIndex(el2 => unitsShort.includes(el2));
+
+            let objIngredient;
+            if(unitIndex > -1){
+                // there is unit
+            }
+            else if(parseInt(arrIngredient[0], 10)){
+                // there is a NO unit, but there is a number
+                objIngredient = {
+                    count: parseInt(arrIngredient[0], 10),
+                    unit: '',
+                    ingredient: arrIngredient.slice(1).join(' ')
+                }
+            }
+            else if(unitIndex === -1){
+                // there is NO unit
+                objIngredient = {
+                    count: 1,
+                    unit: '',
+                    ingredient
+                }
+            }
+
+            return objIngredient;
         });
         this.ingredients = newIngredients;
     }
