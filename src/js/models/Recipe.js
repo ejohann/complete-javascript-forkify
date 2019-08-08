@@ -41,7 +41,10 @@ export default class Recipe{
         const newIngredients = this.ingredients.map(el => {
             // 1. Uniform units
             let ingredient = el.lowercase();
-            
+            unitsLong.forEach((unit, i) => {
+                ingredient = ingredient.replace(unit, unitsShort[i]);
+            })
+
             // 2.  Remove parenthesis
 
             // 3. parse ingredients into count, unit and ingredient
