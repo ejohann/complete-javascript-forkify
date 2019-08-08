@@ -16,8 +16,6 @@ export default class Recipe{
             //this.url = results.data[0].url;
             this.url = results.data[0].shareAs;
             this.ingredients = results.data[0].ingredientLines;
-            this.parseIngredients ();
-           console.log(results);
         }catch(error){
             console.log(error);
             alert('Something went wrong :(');
@@ -58,6 +56,20 @@ export default class Recipe{
             let objIngredient;
             if(unitIndex > -1){
                 // there is unit
+                const arrCount = arrIngredient.slice(0, unitIndex);
+                let count;
+               if(arrCount.length === 1){
+                    count = eval(arrIngredient[0].replace('-', '+'));
+                 }
+               else{
+                    count = eval(arrIngredient.slice(0, unitIndex).join('+'));
+                } 
+                
+                objIngredient = {
+                    count: count,
+                    unit: arrIngredient[unitIndex],
+                    ingredient: arrIngredient.slice(unitIndex + 1).join(' ')
+                } 
             }
             else if(parseInt(arrIngredient[0], 10)){
                 // there is a NO unit, but there is a number
