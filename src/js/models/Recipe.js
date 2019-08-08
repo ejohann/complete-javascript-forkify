@@ -19,6 +19,18 @@ export default class Recipe{
            console.log(results);
         }catch(error){
             console.log(error);
+            alert('Something went wrong :(');
         }
+    }
+
+    calcTime(){
+        // estimate 15 minutes for every 3 ingredients
+        const totalIngredients = this.ingredients.length;
+        const periods = Math.ceil(totalIngredients / 3);
+        this.time = periods * 15;
+    }
+
+    calcServings(){
+        this.servings = 4;
     }
 }
