@@ -74,9 +74,10 @@ elements.searchResultPages.addEventListener('click', e => {
  const controlRecipe = async () => {
      // get id from url
     const id = window.location.hash.replace('#', '');
-    console.log(id);
+    // console.log(id);
     if(id){
         // prepare ui for changes
+        recipeView.clearRecipe();
         renderLoader(elements.recipe);
 
         // create new recipe object
