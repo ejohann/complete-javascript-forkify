@@ -139,6 +139,21 @@ const controlList = () => {
   * EVENT LISTENERS
   */
 
+// handle delete and update list events
+elements.shopping.addEventListener('click', e => {
+    const id = e.target.closest('.shopping__item').dataset.itemid;
+
+    // handle the delete button 
+    if(e.target.matches('.shopping__delete, .shopping__delete *')){
+        // delete from state
+        state.list.deleteItem(id);
+
+        // delete from UI
+        listView.deleteItem(id);
+      }
+  });
+
+
  // handling recipe button clicks
 elements.recipe.addEventListener('click', e =>{
     if(e.target.matches('.btn-decrease, .btn-decrease *')){
