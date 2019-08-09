@@ -94,3 +94,12 @@ export const renderResults = (recipes, page = 1, resultsPerPage = 10) => {
     //render pagination buttons
     renderButtons(page, recipes.length, resultsPerPage);
 };
+
+export const noResults = query => {
+    const markup = `
+    <div>
+        <h1 class="heading-2">no results for "${query}"</h1>
+    </div>
+    `;
+    elements.searchResultList.insertAdjacentHTML('beforeend', markup);   
+}
