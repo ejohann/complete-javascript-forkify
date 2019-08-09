@@ -118,6 +118,17 @@ elements.searchResultPages.addEventListener('click', e => {
 
  ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
 
+
+/**
+ * SHOPPING LIST CONTROLLER
+ */
+
+
+
+ /**
+  * EVENT LISTENERS
+  */
+
  // handling recipe button clicks
 elements.recipe.addEventListener('click', e =>{
     if(e.target.matches('.btn-decrease, .btn-decrease *')){
@@ -132,10 +143,8 @@ elements.recipe.addEventListener('click', e =>{
         state.recipe.updateServings('inc');
         recipeView.updateServingsIngredients(state.recipe);
     }
-    
+    else if(e.target.matches('.recipe__btn--add, .recipe__btn--add *')){
+        // add item to shopping list if clicked
+        controlList();
+    }
   });
-
-/**
- * SHOPPING LIST CONTROLLER
- */
- window.l = new List();
