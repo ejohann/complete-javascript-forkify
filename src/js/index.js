@@ -135,13 +135,7 @@ elements.recipe.addEventListener('click', e =>{
     
   });
 
-
-//window.addEventListener('hashchange', controlRecipe);
-//window.addEventListener('load', controlRecipe);
-
- /*
- const r = new Recipe('recipe_1b6dfeaf0988f96b187c7c9bb69a14fa');
- r.getRecipe();
- console.log(r);
-*/
-
+/**
+ * SHOPPING LIST CONTROLLER
+ */
+ window.l = new List();
