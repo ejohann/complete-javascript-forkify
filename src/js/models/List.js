@@ -1,4 +1,5 @@
 import uniqid from 'uniqid';
+import { throws } from 'assert';
 
 export default class List{
     constructor(){
@@ -21,5 +22,7 @@ export default class List{
         this.items.splice(index, 1);
     }
 
-    
+    updateCount(id, newCount){
+        this.items.find(el => el.id === id).count = newCount;
+    }
 }
