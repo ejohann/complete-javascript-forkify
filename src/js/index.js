@@ -91,7 +91,9 @@ elements.searchResultPages.addEventListener('click', e => {
             state.recipe.calcServings();
 
             // render recipe
-            console.log(state.recipe);
+           // console.log(state.recipe);
+            clearLoader();
+            recipeView.renderRecipe(state.recipe);
         }catch(error){
             alert('Error processing recipe');
         }
