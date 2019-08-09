@@ -13,4 +13,13 @@ export default class List{
             ingredient
         }
     }
+
+    deleteItem(id){
+        // find element to be deleted
+        const index = this.items.findIndex(el => el.id === id);
+        // delete the item and mutate the array
+        this.items.splice(index, 1);
+    }
+
+    
 }
