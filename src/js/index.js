@@ -37,8 +37,17 @@ const controlSearch = async () => {
             await state.search.getResults();
 
             // 5. render results for recipes
-            clearLoader();
-            searchView.renderResults(state.search.recipes); 
+            if(state.search.recipes.length === 0 ) {
+                // no results found
+                clearLoader();
+                searchView.noResults(query);
+             } 
+            else 
+             {
+                // render results 
+                clearLoader();
+                searchView.renderResults(state.search.recipes);
+             }
         }catch(error){
             alert('Something went wrong');
             clearLoader();
