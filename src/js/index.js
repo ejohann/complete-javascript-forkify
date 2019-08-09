@@ -77,7 +77,8 @@ elements.searchResultPages.addEventListener('click', e => {
     console.log(id);
     if(id){
         // prepare ui for changes
-        
+        renderLoader(elements.recipe);
+
         // create new recipe object
         state.recipe = new Recipe(id);
 
