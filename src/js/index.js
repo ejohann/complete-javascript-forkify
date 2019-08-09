@@ -127,9 +127,10 @@ const controlList = () => {
     // create a new list if there is none yet
     if(!state.list) state.list = new List();
 
-    // add each ingredient to the list
+    // add each ingredient to the list and UI
     state.recipe.ingredients.forEach(el => {
         const item = state.list.addItem(el.count, el.unit, el.ingredient);
+        listView.renderItem(item);
     });
 }
 
