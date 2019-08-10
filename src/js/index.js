@@ -155,6 +155,7 @@ const controlList = () => {
         const newLike = state.like.addLike(currentID, state.recipe.title, state.recipe.author, state.recipe.image);
 
         // toggle like button
+        likesView.toggleLikeBtn(true);
 
         // add like to the UI
         console.log(state.like);
@@ -166,6 +167,7 @@ const controlList = () => {
         state.like.deleteLike(currentID);
 
         // toggle like button
+        likesView.toggleLikeBtn(false);
 
         // remove like from the UI
         console.log(state.like);
