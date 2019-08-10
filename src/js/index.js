@@ -110,9 +110,8 @@ elements.searchResultPages.addEventListener('click', e => {
             state.recipe.calcServings();
 
             // render recipe
-           // console.log(state.recipe);
             clearLoader();
-            recipeView.renderRecipe(state.recipe);
+            recipeView.renderRecipe(state.recipe, state.like.isLiked(id));
         }catch(error){
             alert('Error processing recipe');
         }
@@ -142,6 +141,9 @@ const controlList = () => {
  * LIKE CONTROLLER
  */
 
+ //testing
+ state.like = new Likes();
+ 
  const controlLike = () =>{
     // create like if there is no likes as yet 
     if(!state.like) state.like = new Likes();
