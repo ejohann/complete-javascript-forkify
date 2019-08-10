@@ -140,12 +140,8 @@ const controlList = () => {
 /**
  * LIKE CONTROLLER
  */
-
- //testing
- state.like = new Likes();
- likesView.toggleLikeMenu(state.like.getTotalLikes());
-
- const controlLike = () =>{
+ 
+  const controlLike = () =>{
     // create like if there is no likes as yet 
     if(!state.like) state.like = new Likes();
 
@@ -185,6 +181,18 @@ const controlList = () => {
  /**
   * EVENT LISTENERS
   */
+
+ // restore liked recipes on page load
+ window.addEventListener('load', () => {
+    state.like = new Likes();
+    //restore likes from localstorage
+    state.like.readStorage();
+    // toggle like menu button
+    likesView.toggleLikeMenu(state.like.getTotalLikes());
+    //render existing likes
+    state.like.likes.forEach(lke => likesView.renderLike(lke));
+ });
+
 
 // handle delete and update list events
 elements.shopping.addEventListener('click', e => {
