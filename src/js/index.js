@@ -143,6 +143,7 @@ const controlList = () => {
 
  //testing
  state.like = new Likes();
+ likesView.toggleLikeMenu(state.like.getTotalLikes());
 
  const controlLike = () =>{
     // create like if there is no likes as yet 
