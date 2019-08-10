@@ -21,7 +21,7 @@ export const highLightSelected = id => {
     document.querySelector(`.results__link[href="#${id}"]`).classList.add('results__link--active');
   };
 
-const limitRecipeTitle = (recipeTitle, limit = 17) => {
+export const limitRecipeTitle = (recipeTitle, limit = 17) => {
     const newTitle = [];
     if(recipeTitle.length > limit){
         recipeTitle.split(' ').reduce((acc, cur) => {
