@@ -1,7 +1,6 @@
 import Search from './models/Search';
 import Recipe from './models/Recipe';
 import List from './models/List';
-import Likes from './models/Likes';
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
 import * as listView from './views/listView';
@@ -147,10 +146,11 @@ const controlList = () => {
 
     // add a like
     const currentID = state.recipe.id;
+   
     // user not liked current recipe
-    if(state.likes.isLiked(currentID)){
+    if(!state.like.isLiked(currentID)){
         // add like to the state
-        const newLike = state.likes.addLike(currentID, state.recipe.title, state.recipe.author, state.recipe.image);
+        const newLike = state.like.addLike(currentID, state.recipe.title, state.recipe.author, state.recipe.image);
 
         // toggle like button
 
@@ -161,7 +161,7 @@ const controlList = () => {
     else
       {
         // remove like from the state
-        state.likes.deleteLike(currentID);
+        state.like.deleteLike(currentID);
 
         // toggle like button
 
