@@ -8,8 +8,6 @@ import * as listView from './views/listView';
 import * as likesView from './views/likesView';
 import { elements, renderLoader, clearLoader } from './views/base';
 
-
-
 /**  
  * Global state of the app
  * 1. Search object
@@ -19,7 +17,6 @@ import { elements, renderLoader, clearLoader } from './views/base';
  */
 
 const state = {};
-
 
 /**
  * SEARCH CONTROLLER
@@ -77,7 +74,6 @@ elements.searchResultPages.addEventListener('click', e => {
         searchView.clearResults();
         // go to the page and render the results
         searchView.renderResults(state.search.recipes, goToPage); 
-        console.log(goToPage);
       }
 });
 
@@ -88,7 +84,6 @@ elements.searchResultPages.addEventListener('click', e => {
  const controlRecipe = async () => {
      // get id from url
     const id = window.location.hash.replace('#', '');
-    // console.log(id);
     if(id){
         // prepare ui for changes
         recipeView.clearRecipe();
@@ -115,12 +110,10 @@ elements.searchResultPages.addEventListener('click', e => {
         }catch(error){
             alert('Error processing recipe');
         }
-    
     }
  }
 
  ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
-
 
 /**
  * SHOPPING LIST CONTROLLER
@@ -135,7 +128,6 @@ const controlList = () => {
         listView.renderItem(item);
     });
 }
-
 
 /**
  * LIKE CONTROLLER
@@ -176,8 +168,6 @@ const controlList = () => {
       likesView.toggleLikeMenu(state.like.getTotalLikes());
  };
 
-
-
  /**
   * EVENT LISTENERS
   */
@@ -212,7 +202,6 @@ elements.shopping.addEventListener('click', e => {
             state.list.updateCount(id, val);
         }
   });
-
 
  // handling recipe button clicks
 elements.recipe.addEventListener('click', e =>{
