@@ -143,7 +143,7 @@ const controlList = () => {
 
  //testing
  state.like = new Likes();
- 
+
  const controlLike = () =>{
     // create like if there is no likes as yet 
     if(!state.like) state.like = new Likes();
@@ -174,8 +174,10 @@ const controlList = () => {
         // remove like from the UI
         console.log(state.like);
       }
-
- }
+    
+      // toggle like menu
+      likesView.toggleLikeMenu(state.like.getTotalLikes());
+ };
 
 
 
