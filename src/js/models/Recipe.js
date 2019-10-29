@@ -8,7 +8,7 @@ export default class Recipe{
 
     async getRecipe(){
         try{
-            const recipeID = encodeURIComponent(`${recipeURL}${this.id}`)
+            const recipeID = encodeURIComponent(`${recipeURL}${this.id}`);
             const results = await axios(`${baseURL}/search?r=${recipeID}&app_id=${apiAppID}&app_key=${apiKey}`);
             this.title = results.data[0].label;
             this.author = results.data[0].source;
